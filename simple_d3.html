@@ -34,6 +34,23 @@
       .data(data.columns)
       .join('li')
       .text(d=>d);
-  });
+    var table = display.append('table');
+    var tbody = table.append('tbody');
+    var trows = tbody
+      .selectAll('tr')
+      .data(data)
+      .join('tr');
+    var tData = trows
+      .selectAll('td')
+      .data(function(d){
+        var parsedRow = [];
+        for (var col of data.columns){
+          parsedRow.push(d[col]);
+        };
+        return parsedRow;
+      })
+      .join('td')
+      .text(function(d){return d;});
+     });
 </script>
 </html>
