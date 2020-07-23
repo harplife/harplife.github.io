@@ -1,4 +1,10 @@
-## Welcome to GitHub Pages
+# Welcome to GitHub Pages
+
+## Simple D3 Links
+
+- [d3 table](https://harplife.github.io/d3_table)
+
+## How to edit
 
 You can use the [editor on GitHub](https://github.com/harplife/harplife.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
