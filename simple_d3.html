@@ -13,7 +13,9 @@
     data : []
   };
 
+  // d3 v5 returns a PROMISE.
   const data = d3.csv(state['url'], function(data){return data});
-  state['data'] = data
+  // data within PROMISE must be called with .then
+  data.then(function(data){state['data']=data});
 </script>
 </html>
