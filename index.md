@@ -3,6 +3,7 @@
 ## Simple D3 Links
 
 - [d3 table](https://harplife.github.io/d3_table)
+- [opencv.js sample](https://harplife.github.io/opencv_sample)
 
 ## How to edit
 
