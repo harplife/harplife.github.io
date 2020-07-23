@@ -51,7 +51,7 @@
     function update(data){
       var display = d3.select('#overview');
       var table = display.append('table');
-      table.classed('table', true);
+      table.classed('table table-hover', true);
       var thead = table.append('thead').append('tr');
       var tcols = thead
         .selectAll('th')
