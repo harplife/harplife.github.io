@@ -4,7 +4,11 @@
 <body>
 
 <script src="//d3js.org/d3.v5.min.js"></script>
-
+  
+  <div id='overview'>
+    <!-- overview of data here. -->
+  </div>
+  
 <script>
   // inspired by: http://bl.ocks.org/mbostock/3883245
   // data path config
@@ -14,8 +18,22 @@
   };
 
   // d3 v5 returns a PROMISE.
-  const data = d3.csv(state['url'], function(data){return data});
+  const data = d3.csv(state['url'], function(data){
+    return data;
+  });
   // data within PROMISE must be called with .then
-  data.then(function(data){state['data']=data});
+  data.then(function(data){
+    // every operation with Promise must be done inside .then
+    // use of the data within 'state' is not recommended,
+    // I'm only doing it so that I can view the data more easily.
+    state['data'] = data;
+    var display = d3.select('#overview')
+    var columns = display
+      .append('ol')
+      .selectAll('li')
+      .data(data.columns)
+      .join('li')
+      .text(d=>d);
+  });
 </script>
 </html>
