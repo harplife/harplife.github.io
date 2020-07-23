@@ -13,8 +13,7 @@
     data : []
   };
 
-  d3.csv(state['url'], function(error, data){
-    state['data'] = data;
-  });
+  const data = d3.csv(state['url'], function(data){return data});
+  state['data'] = data
 </script>
 </html>
