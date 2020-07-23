@@ -3,67 +3,67 @@
 
 <body>
 
-<script src="//d3js.org/d3.v5.min.js"></script>
+  <script src="//d3js.org/d3.v5.min.js"></script>
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   <div id='overview'>
     <!-- overview of data here. -->
   </div>
   
-<script>
-  // inspired by: http://bl.ocks.org/mbostock/3883245
-  // data path config
-  const state = {
-    url : "https://gist.githubusercontent.com/harplife/f8a2dabffcc8814b701f7a457f2ebd1b/raw/a00589c1788a576bb1889b4590601a436b3554f5/iris_data.csv",
-    data : []
-  };
+  <script>
+    // inspired by: http://bl.ocks.org/mbostock/3883245
+    // data path config
+    const state = {
+      url : "https://gist.githubusercontent.com/harplife/f8a2dabffcc8814b701f7a457f2ebd1b/raw/a00589c1788a576bb1889b4590601a436b3554f5/iris_data.csv",
+      data : []
+    };
 
-  // d3 v5 returns a PROMISE.
-  const data = d3.csv(state['url'], function(data){
-    return data;
-  });
-  // data within PROMISE must be called with .then
-  data.then(function(data){
-    // every operation with Promise must be done inside .then
-    // use of the data within 'state' is not recommended,
-    // I'm only doing it so that I can view the data more easily.
-    state['data'] = data;
-    var display = d3.select('#overview');
-    var table = display.append('table');
-    table.classed('table', true);
-    var thead = table.append('thead').append('tr');
-    var tcols = thead
-      .selectAll('th')
-      .data(data.columns)
-      .join('th')
-      .text(d=>d);
-    var tbody = table.append('tbody');
-    var trows = tbody
-      .selectAll('tr')
-      .data(data)
-      .join('tr');
-    var tData = trows
-      .selectAll('td')
-      .data(function(d){
-        var parsedRow = [];
-        for (var col of data.columns){
-          parsedRow.push(d[col]);
-        };
-        return parsedRow;
-      })
-      .join('td')
-      .text(function(d){return d;});
-     });
-</script>
+    // d3 v5 returns a PROMISE.
+    const data = d3.csv(state['url'], function(data){
+      return data;
+    });
+    // data within PROMISE must be called with .then
+    data.then(function(data){
+      // every operation with Promise must be done inside .then
+      // use of the data within 'state' is not recommended,
+      // I'm only doing it so that I can view the data more easily.
+      state['data'] = data;
+      var display = d3.select('#overview');
+      var table = display.append('table');
+      table.classed('table', true);
+      var thead = table.append('thead').append('tr');
+      var tcols = thead
+        .selectAll('th')
+        .data(data.columns)
+        .join('th')
+        .text(d=>d);
+      var tbody = table.append('tbody');
+      var trows = tbody
+        .selectAll('tr')
+        .data(data)
+        .join('tr');
+      var tData = trows
+        .selectAll('td')
+        .data(function(d){
+          var parsedRow = [];
+          for (var col of data.columns){
+            parsedRow.push(d[col]);
+          };
+          return parsedRow;
+        })
+        .join('td')
+        .text(function(d){return d;});
+       });
+  </script>
 </html>
