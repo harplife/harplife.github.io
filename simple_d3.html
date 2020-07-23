@@ -8,11 +8,13 @@
 <script>
   // inspired by: http://bl.ocks.org/mbostock/3883245
   // data path config
-  var vizDataSourceUrl = "https://gist.githubusercontent.com/harplife/f8a2dabffcc8814b701f7a457f2ebd1b/raw/a00589c1788a576bb1889b4590601a436b3554f5/iris_data.csv";
+  const state = {
+    url : "https://gist.githubusercontent.com/harplife/f8a2dabffcc8814b701f7a457f2ebd1b/raw/a00589c1788a576bb1889b4590601a436b3554f5/iris_data.csv",
+    data : []
+  };
 
-  d3.csv(vizDataSourceUrl, function(error, data){
-    var irisData = data;
-    console.log(irisData)
+  d3.csv(state['url'], function(error, data){
+    state['data'] = data;
   });
 </script>
 </html>
