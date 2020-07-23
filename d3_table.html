@@ -39,6 +39,10 @@
       // use of the data within 'state' is not recommended,
       // I'm only doing it so that I can view the data more easily.
       state['data'] = data;
+      update(data);
+    });
+    
+    function update(data){
       var display = d3.select('#overview');
       var table = display.append('table');
       table.classed('table', true);
@@ -64,6 +68,6 @@
         })
         .join('td')
         .text(function(d){return d;});
-       });
+    };
   </script>
 </html>
