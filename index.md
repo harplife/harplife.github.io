@@ -4,6 +4,8 @@
 
 - [d3 table](https://harplife.github.io/d3_table)
 - [opencv.js sample](https://harplife.github.io/opencv_read_img)
+- [Upload and play audio](https://harplife.github.io/simple_audio)
+- [Music Player](https://harplife.github.io/geeks_audio)
 
 ## How to edit
 
