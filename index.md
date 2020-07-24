@@ -6,6 +6,7 @@
 - [opencv.js sample](https://harplife.github.io/opencv_read_img)
 - [Upload and play audio](https://harplife.github.io/simple_audio)
 - [Music Player](https://harplife.github.io/geeks_audio)
+- [Audio Sprite](https://harplife.github.io/audio_sprite)
 
 ## How to edit
 
