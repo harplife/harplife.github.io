@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+</head>
+<body>
+  <input type="file" id="input"/>
+  <audio id="sound"></audio>
+  <script>
+    input.onchange = function(){
+      var sound = document.getElementById('sound');
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        sound.src = this.result;
+        sound.controls = true;
+        sound.play();
+        };
+      reader.readAsDataURL(this.files[0]);
+    };
+  </script>
+</body>
+</html>
